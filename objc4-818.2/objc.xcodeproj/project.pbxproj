@@ -917,6 +917,7 @@
 					"$(CONFIGURATION_BUILD_DIR)/usr/local/include/**",
 					/System/Library/Frameworks/System.framework/PrivateHeaders,
 					"$(SRCROOT)/dependency/xnu/bsd",
+					"$(SRCROOT)/dependency/",
 				);
 				"INCLUDED_SOURCE_FILE_NAMES[sdk=macosx*][arch=i386]" = "dummy-library-mac-i386.c";
 				INSTALL_PATH = /usr/lib;
@@ -1183,6 +1184,7 @@
 					"$(SRCROOT)/runtime",
 					/System/Library/Frameworks/System.framework/PrivateHeaders,
 					"$(SRCROOT)/dependency/xnu/bsd",
+					"$(SRCROOT)/dependency/",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
