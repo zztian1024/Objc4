@@ -441,9 +441,9 @@ void environ_init(void)
         }
     }
 
-    if (!os_feature_enabled_simple(objc4, preoptimizedCaches, true)) {
-        DisablePreoptCaches = true;
-    }
+//    if (!os_feature_enabled_simple(objc4, preoptimizedCaches, true)) {
+//        DisablePreoptCaches = true;
+//    }
 
     // Print OBJC_HELP and OBJC_PRINT_OPTIONS output.
     if (PrintHelp  ||  PrintOptions) {
