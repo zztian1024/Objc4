@@ -39,11 +39,11 @@
 #include <map>
 #include <execinfo.h>
 #include "NSObject-internal.h"
-#include <os/feature_private.h>
+//#include <os/feature_private.h>
 
 extern "C" {
-#include <os/reason_private.h>
-#include <os/variant_private.h>
+//#include <os/reason_private.h>
+//#include <os/variant_private.h>
 }
 
 @interface NSInvocation

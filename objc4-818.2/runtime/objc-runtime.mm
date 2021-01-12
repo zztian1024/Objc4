@@ -33,7 +33,7 @@
 * Imports.
 **********************************************************************/
 
-#include <os/feature_private.h> // os_feature_enabled_simple()
+//#include <os/feature_private.h> // os_feature_enabled_simple()
 #include "objc-private.h"
 #include "objc-loadmethod.h"
 #include "objc-file.h"
