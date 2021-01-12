@@ -924,6 +924,7 @@
 				IS_ZIPPERED = YES;
 				LLVM_LTO = NO;
 				ORDER_FILE = "$(SDKROOT)/AppleInternal/OrderFiles/libobjc.order";
+				"ORDER_FILE[arch=*]" = "$(SRCROOT)/libobjc.order";
 				"ORDER_FILE[sdk=iphonesimulator*]" = "";
 				OTHER_CFLAGS = (
 					"-fdollars-in-identifiers",
