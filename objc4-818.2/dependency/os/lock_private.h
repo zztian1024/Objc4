@@ -467,7 +467,7 @@ os_unfair_lock_lock_inline(os_unfair_lock_t lock)
 	if (!_pthread_has_direct_tsd()) return os_unfair_lock_lock(lock);
 	uintptr_t mts = (uintptr_t)_pthread_getspecific_direct(
 			_PTHREAD_TSD_SLOT_MACH_THREAD_SELF);
-	os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { mts };
+    os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { static_cast<uint32_t>(mts) };
 	if (!OSLOCK_STD(atomic_compare_exchange_strong_explicit)(
 			(_os_atomic_unfair_lock*)lock, &unlocked, locked,
 			OSLOCK_STD(memory_order_acquire),
@@ -499,7 +499,7 @@ os_unfair_lock_lock_with_options_inline(os_unfair_lock_t lock,
 	}
 	uintptr_t mts = (uintptr_t)_pthread_getspecific_direct(
 			_PTHREAD_TSD_SLOT_MACH_THREAD_SELF);
-	os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { mts };
+    os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { static_cast<uint32_t>(mts) };
 	if (!OSLOCK_STD(atomic_compare_exchange_strong_explicit)(
 			(_os_atomic_unfair_lock*)lock, &unlocked, locked,
 			OSLOCK_STD(memory_order_acquire),
@@ -534,7 +534,7 @@ os_unfair_lock_trylock_inline(os_unfair_lock_t lock)
 	if (!_pthread_has_direct_tsd()) return os_unfair_lock_trylock(lock);
 	uintptr_t mts = (uintptr_t)_pthread_getspecific_direct(
 			_PTHREAD_TSD_SLOT_MACH_THREAD_SELF);
-	os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { mts };
+    os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { static_cast<uint32_t>(mts) };
 	return OSLOCK_STD(atomic_compare_exchange_strong_explicit)(
 			(_os_atomic_unfair_lock*)lock, &unlocked, locked,
 			OSLOCK_STD(memory_order_acquire), OSLOCK_STD(memory_order_relaxed));
@@ -557,7 +557,7 @@ os_unfair_lock_unlock_inline(os_unfair_lock_t lock)
 	if (!_pthread_has_direct_tsd()) return os_unfair_lock_unlock(lock);
 	uintptr_t mts = (uintptr_t)_pthread_getspecific_direct(
 			_PTHREAD_TSD_SLOT_MACH_THREAD_SELF);
-	os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { mts };
+    os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { static_cast<uint32_t>(mts) };
 	if (!OSLOCK_STD(atomic_compare_exchange_strong_explicit)(
 			(_os_atomic_unfair_lock*)lock, &locked, unlocked,
 			OSLOCK_STD(memory_order_release),
@@ -602,7 +602,7 @@ void
 os_unfair_lock_lock_inline_no_tsd_4libpthread(os_unfair_lock_t lock)
 {
 	uintptr_t mts = (uintptr_t)MACH_PORT_DEAD;
-	os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { mts };
+    os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { static_cast<uint32_t>(mts) };
 	if (!OSLOCK_STD(atomic_compare_exchange_strong_explicit)(
 			(_os_atomic_unfair_lock*)lock, &unlocked, locked,
 			OSLOCK_STD(memory_order_acquire),
@@ -628,7 +628,7 @@ void
 os_unfair_lock_unlock_inline_no_tsd_4libpthread(os_unfair_lock_t lock)
 {
 	uintptr_t mts = (uintptr_t)MACH_PORT_DEAD;
-	os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { mts };
+    os_unfair_lock unlocked = OS_UNFAIR_LOCK_INIT, locked = { static_cast<uint32_t>(mts) };
 	if (!OSLOCK_STD(atomic_compare_exchange_strong_explicit)(
 			(_os_atomic_unfair_lock*)lock, &locked, unlocked,
 			OSLOCK_STD(memory_order_release),
