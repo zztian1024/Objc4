@@ -160,7 +160,7 @@
 #include "objc-abi.h"
 #include <objc/message.h>
 #if !TARGET_OS_WIN32
-#include <os/linker_set.h>
+//#include <os/linker_set.h>
 #endif
 
 /***********************************************************************
