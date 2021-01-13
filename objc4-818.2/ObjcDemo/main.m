@@ -6,10 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
+        User *user = [[User alloc] init];
         NSLog(@"Hello, World!");
     }
     return 0;
